@@ -1,0 +1,5 @@
+docker login ghcr.io -u hitabm -p <personal-access-token>
+
+docker build -t ghcr.io/megamouj/under-maintenance .
+
+docker push ghcr.io/megamouj/under-maintenance
