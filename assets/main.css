@@ -350,6 +350,124 @@ html body {
 
 /*---------------------------------------------*/
 
+/* Custom single page enhancements */
+.logo-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(40vw, 260px);
+  aspect-ratio: 1 / 1;
+}
+
+.logo-wrapper img {
+  width: 70%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-spinner {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 130deg,
+      rgba(20, 45, 120, 0.05) 0deg,
+      rgba(64, 160, 255, 0.25) 40deg,
+      rgba(121, 206, 255, 0.7) 120deg,
+      rgba(90, 149, 255, 0.45) 190deg,
+      rgba(22, 22, 60, 0.15) 300deg,
+      rgba(20, 45, 120, 0.05) 360deg);
+  box-shadow: 0 0 45px rgba(88, 170, 255, 0.35), 0 0 90px rgba(32, 109, 255, 0.2);
+  mask: radial-gradient(circle at center,
+      transparent 52%,
+      rgba(0, 0, 0, 0.9) 60%,
+      rgba(0, 0, 0, 0.6) 68%,
+      rgba(0, 0, 0, 0.25) 82%,
+      transparent 100%);
+  -webkit-mask: radial-gradient(circle at center,
+      transparent 52%,
+      rgba(0, 0, 0, 0.9) 60%,
+      rgba(0, 0, 0, 0.6) 68%,
+      rgba(0, 0, 0, 0.25) 82%,
+      transparent 100%);
+  filter: blur(3px);
+  animation: comet-spin 6s linear infinite;
+  pointer-events: none;
+}
+
+.logo-spinner::before {
+  content: "";
+  position: absolute;
+  inset: -15%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(68, 133, 255, 0.35) 0%,
+      rgba(35, 73, 140, 0.15) 45%,
+      rgba(10, 15, 30, 0) 70%);
+  filter: blur(12px);
+  opacity: 0.6;
+}
+
+.logo-spinner::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 30%;
+  background: linear-gradient(90deg,
+      rgba(121, 206, 255, 0) 0%,
+      rgba(121, 206, 255, 0.55) 45%,
+      rgba(255, 255, 255, 0.8) 100%);
+  border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  transform-origin: left center;
+  transform: translate(-50%, -50%);
+  filter: blur(6px);
+}
+
+@keyframes comet-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-wrapper {
+    width: 55vw;
+  }
+}
+
+.emoji-pulse,
+.emoji-pulse-thanks {
+  display: inline-block;
+  animation: pulse-scale 1.6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.emoji-pulse {
+  margin-left: 6px;
+}
+
+.emoji-pulse-thanks {
+  margin-right: 6px;
+}
+
+@keyframes pulse-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
 /*==================================================================
   RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE
 ==================================================================*/
